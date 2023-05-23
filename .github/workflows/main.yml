@@ -1,12 +1,12 @@
 name: Ejecución Diaria
 
-#on:
-#  schedule:
-#    - cron: "30 8,15 * * *"
 on:
-  push:
-    branches:
-      - master 
+  schedule:
+    - cron: "30 23 * * *"
+#on:
+#  push:
+#    branches:
+#      - master 
 
 
 jobs:
