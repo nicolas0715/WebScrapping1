@@ -273,15 +273,13 @@ for archivo in archivos:
 
 
 # Subir a Google Drive
-directorio = 'C:/Users/otero/Desktop/Pokio/Programacion/Proyectos/Proyectos_varios/Web_scrapping_copia - copia' 
-#Cambiar directiorio por el directorio local
 
-contenido = os.listdir(directorio)
+contenido = os.listdir(ruta_raiz)
 
 archivos_subir = []
 for txt in contenido:
     if txt.endswith('.txt'):
-        ruta_a = os.path.join(directorio, txt)
+        ruta_a = os.path.join(ruta_raiz, txt)
         archivos_subir.append(txt)
         media_body = MediaFileUpload(txt, mimetype='text/plain', resumable=True)
         archivo_metadata = {'name': txt, 'parents': [carpeta_id]}
