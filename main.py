@@ -256,8 +256,10 @@ for l, lista in enumerate(listas):
 
 #Guardar en el drive
 
+#Ruta raiz
+ruta_raiz = os.getcwd()
 # Credenciales de Google Drive
-ruta_archivo_credenciales = 'C:/Users/otero/Desktop/Pokio/Programacion/Proyectos/Proyectos_varios/Web_scrapping/driven-striker-386616-85af28be82bc.json'
+ruta_archivo_credenciales = os.path.join(ruta_raiz, 'driven-striker-386616-85af28be82bc.json') 
 credentials = service_account.Credentials.from_service_account_file(ruta_archivo_credenciales, scopes=['https://www.googleapis.com/auth/drive'])
 drive_service = build('drive', 'v3', credentials=credentials)
 
