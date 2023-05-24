@@ -2,7 +2,7 @@ name: Ejecución Diaria
 
 on:
   schedule:
-    - cron: "30 11,15 * * *"
+    - cron: "30 11,18 * * *"
 
 
 jobs:
