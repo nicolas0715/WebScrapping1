@@ -278,7 +278,7 @@ contenido = os.listdir(ruta_raiz)
 
 archivos_subir = []
 for txt in contenido:
-    if txt.endswith('.txt'):
+    if txt.endswith('.txt') and not ('requirements.txt'):
         ruta_a = os.path.join(ruta_raiz, txt)
         archivos_subir.append(txt)
         media_body = MediaFileUpload(txt, mimetype='text/plain', resumable=True)
