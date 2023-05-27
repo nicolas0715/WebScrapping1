@@ -215,7 +215,7 @@ for producto in datos_viejos1:
     if producto['precio'] != precios_dict.get(producto['nombre']):
         aumentados.append(producto['nombre'])
 
-
+print(aumentados)
 # Una vez comparados los datos, ya se pueden guardar en el archivo csv
 
 # Hay que guardar los datos de precios_dict en el archivo csv
@@ -245,7 +245,7 @@ with open('productos.csv', 'w', newline='') as archivo_csv:
     escritor_csv.writerows(datos_viejos2)
 
 #Llamar a la funcion que crea txt general
-txt1()
+txt1(fecha_formateada)
 
 #Llamar a la funcion que genera un txt por lista de productos
 listas = productos1, productos2, productos3, productos4
@@ -278,7 +278,7 @@ contenido = os.listdir(ruta_raiz)
 
 archivos_subir = []
 for txt in contenido:
-    if txt.endswith('.txt') and not ('requirements.txt'):
+    if txt.endswith('.txt') and txt != 'requirements.txt':
         ruta_a = os.path.join(ruta_raiz, txt)
         archivos_subir.append(txt)
         media_body = MediaFileUpload(txt, mimetype='text/plain', resumable=True)

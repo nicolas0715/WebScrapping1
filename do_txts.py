@@ -1,7 +1,7 @@
 import csv
 
 #Crear archivo txt con una sola lista de todos los productos
-def txt1():
+def txt1(fecha):
     # Abrir el archivo CSV en modo lectura
     with open('productos.csv', 'r') as archivo_csv:
         lector_csv = csv.DictReader(archivo_csv)
@@ -10,6 +10,8 @@ def txt1():
         with open('productos.txt', 'w') as archivo_txt:
             # Escribir los encabezados en el archivo de texto
             encabezados = ['Nombre', 'Precio', 'Precio Unitario', 'Precio Sugerido']
+            archivo_txt.write('-' * ((80 - len(fecha)) / 2) + f'{fecha}' + '-' * ((80 - len(fecha))))
+            archivo_txt.write('-' * 80 + '\n')
             linea_encabezados = f'{encabezados[0]:<30}{encabezados[1]:<15}{encabezados[2]:<18}{encabezados[3]:<15}'
             archivo_txt.write(linea_encabezados + '\n')
             archivo_txt.write('-' * 80 + '\n')
