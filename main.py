@@ -250,7 +250,7 @@ txt1(fecha_formateada)
 #Llamar a la funcion que genera un txt por lista de productos
 listas = productos1, productos2, productos3, productos4
 for l, lista in enumerate(listas):
-    txt2(l, lista)
+    txt2(l, lista, fecha_formateada)
 
 
 
