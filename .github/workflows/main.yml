@@ -31,6 +31,6 @@ jobs:
     - name: Ejecutar script Python
       run: python main.py
 
-    - name: Imprimir archivo
+    - name: Imprimir archivo txt
       run: |
-        lp -h '192.168.0.6' -P 'EPSONE148B4' 'prod_lista0.txt'
+        cat prod_lista0.txt | lp -d 192.168.0.6
