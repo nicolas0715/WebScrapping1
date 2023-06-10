@@ -27,7 +27,7 @@ from do_txts import *
 #--------------------------------------- Estas lineas pasar al futuro archivo para crear los .txt
 from datetime import date
 fecha_actual = date.today()
-fecha_formateada = 'Fecha: ' + fecha_actual.strftime("%d/%m/%Y")
+fecha_formateada = 'Fecha ' + fecha_actual.strftime("%d/%m/%Y")
 #---------------------------------------------------------------
 
 
@@ -203,6 +203,7 @@ driver.quit()
 
 #Conocer los productos que aumentaron
 aumentados = []
+print('Aumentaron estos productos: ', aumentados)
 
 # datos_viejos = [
 # {'nombre': 'ACID BORI A SUFA 25G X25S', 'precio': 3334.51, 'unidades': 25, 'precio_unitario': 133.36, 'precio_sugerido': 140}
@@ -215,7 +216,6 @@ for producto in datos_viejos1:
     if producto['precio'] != precios_dict.get(producto['nombre']):
         aumentados.append(producto['nombre'])
 
-print(aumentados)
 # Una vez comparados los datos, ya se pueden guardar en el archivo csv
 
 # Hay que guardar los datos de precios_dict en el archivo csv
