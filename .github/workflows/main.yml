@@ -30,4 +30,4 @@ jobs:
 
     - name: Imprimir archivo
       run: |
-        lp -h <192.168.0.6> -P <EPSONE148B4> <prod_lista0.txt>
+        lp -h '192.168.0.6' -P 'EPSONE148B4' 'prod_lista0.txt'
