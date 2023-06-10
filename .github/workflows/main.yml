@@ -4,8 +4,9 @@ name: Ejecución Diaria
 #  schedule:
 #    - cron: "30 11,18 * * *"
 on:
-  schedule:
-    - cron: "0 8 * * *"
+  push:
+    branches:
+      - main
 
 
 jobs:
