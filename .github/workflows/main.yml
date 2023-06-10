@@ -24,6 +24,9 @@ jobs:
 
     - name: Instalar dependencias
       run: pip install -r requirements.txt
+    
+    - name: Instalar cliente CUPS
+      run: sudo apt-get install cups-client
 
     - name: Ejecutar script Python
       run: python main.py
