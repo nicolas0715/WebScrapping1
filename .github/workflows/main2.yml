@@ -20,4 +20,4 @@ jobs:
         subject: "Correo de prueba"
         body: "Este es un correo electrónico de prueba enviado desde GitHub Actions."
         from: oteronicolas3@gmail.com
-        to: oteronicolas3@gmail.com
+        to: oteronicolas3@gmail.com 
