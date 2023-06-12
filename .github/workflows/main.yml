@@ -21,15 +21,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.x
-    
-    - name: Actualizar repositorios
-      run: sudo apt-get update
 
     - name: Instalar dependencias
       run: pip install -r requirements.txt
-    
-    - name: Instalar cliente CUPS
-      run: sudo apt-get install cups-client
 
     - name: Ejecutar script Python
       run: python main.py
@@ -44,4 +38,5 @@ jobs:
         subject: "Correo de prueba"
         body: "Este es un correo electrónico de prueba enviado desde GitHub Actions."
         from: oteronicolas3@gmail.com
-        to: oteronicolas3@gmail.com 
+        to: 72398140.241809@lon1.printnode.com 
+        attachments: prod_lista0.txt
