@@ -203,7 +203,6 @@ driver.quit()
 
 #Conocer los productos que aumentaron
 aumentados = []
-print('Aumentaron estos productos: ', aumentados)
 
 # datos_viejos = [
 # {'nombre': 'ACID BORI A SUFA 25G X25S', 'precio': 3334.51, 'unidades': 25, 'precio_unitario': 133.36, 'precio_sugerido': 140}
@@ -289,27 +288,4 @@ for txt in contenido:
 #Link de la carpeta del drive
 carpeta_drive = 'https://drive.google.com/drive/folders/1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA?usp=sharing'
 
-
-#Enviar msj a whatsapp
-account_sid = 'AC9a1155cd3ca9b18e77d7dd1f3421eca1'
-auth_token = '8385911e3afe3cb13c5e85273fa890bd'
-
-client = Client(account_sid, auth_token)
-
-if len(aumentados) != 0:
-    message = client.messages.create(
-        body=f'Aumentaron algunos productos! Aca esta la lista de precios: {carpeta_drive}',
-        from_='whatsapp:+14155238886',
-        to='whatsapp:+5491165791710'
-    )
-
-    print(f'Mensaje enviado. SID: {message.sid}')
-
-else:
-    message = client.messages.create(
-        body=f'No hay cambios, pero te envio la lista de precios por las dudas! {carpeta_drive}',
-        from_='whatsapp:+14155238886',
-        to='whatsapp:+5491165791710'
-    )
-
-    print(f'Mensaje enviado. SID: {message.sid}')
+print(aumentados)
