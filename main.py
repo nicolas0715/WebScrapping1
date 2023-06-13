@@ -210,10 +210,9 @@ aumentados = []
 
 # precios_dict = {
 # 'ACID BORI A SUFA 25G X25S': 3334.51,
-
 for producto in datos_viejos1:
     #Precio en datos_viejos1    =!     Precios en precios_dict
-    if precios_dict.get(producto['nombre']) != producto['precio']:
+    if str(precios_dict.get(producto['nombre'])) != producto['precio']:
         aumentados.append(producto['nombre'])
 
 # Una vez comparados los datos, ya se pueden guardar en el archivo csv
@@ -237,12 +236,12 @@ if len(aumentados) != 0:
             product['precio_sugerido'] = math.ceil(product['precio_unitario'] / 10) * 10
             
 
-#Escribir los datos actualizados en el archivo
-campos = ['nombre', 'precio', 'unidades', 'precio_unitario', 'precio_sugerido']
-with open('productos.csv', 'w', newline='') as archivo_csv:
-    escritor_csv = csv.DictWriter(archivo_csv, fieldnames=campos)
-    escritor_csv.writeheader()
-    escritor_csv.writerows(datos_viejos2)
+    #Escribir los datos actualizados en el archivo
+    campos = ['nombre', 'precio', 'unidades', 'precio_unitario', 'precio_sugerido']
+    with open('productos.csv', 'w', newline='') as archivo_csv:
+        escritor_csv = csv.DictWriter(archivo_csv, fieldnames=campos)
+        escritor_csv.writeheader()
+        escritor_csv.writerows(datos_viejos2)
 
 #Llamar a la funcion que genera un pdf por lista de productos
 listas = productos1, productos2, productos3, productos4
