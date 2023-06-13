@@ -73,6 +73,7 @@ def pdf_ind(l, lista):
             ('FONTWEIGHT', (0, 0), (-1, -1), 'BOLD'),
             ('TOPPADDING', (0, 1), (-1, -1), 4), 
             ('BOTTOMPADDING', (0, 1), (-1, -1), 4),
+            ('FONTSIZE', (0, 0), (-1, -1), 16),
         ])
 
         # Crear la tabla
