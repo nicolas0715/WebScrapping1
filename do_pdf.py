@@ -71,8 +71,8 @@ def pdf_ind(l, lista):
             ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
             ('GRID', (0, 0), (-1, -1), 1, colors.black),
             ('FONTWEIGHT', (0, 0), (-1, -1), 'BOLD'),
-            ('TOPPADDING', (0, 1), (-1, -1), 4), 
-            ('BOTTOMPADDING', (0, 1), (-1, -1), 4),
+            ('TOPPADDING', (0, 1), (-1, -1), 2), 
+            ('BOTTOMPADDING', (0, 1), (-1, -1), 6),
             ('FONTSIZE', (0, 0), (-1, -1), 16),
         ])
 
