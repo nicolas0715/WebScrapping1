@@ -48,7 +48,7 @@ def pdf_ind(l, lista):
     datos.insert(0, cabecera)
     
     for prod in lista:
-        archivo_pdf = 'precios'+str(99)+'.pdf'
+        archivo_pdf = 'precios'+str(l)+'.pdf'
 
         # Leer los datos del archivo CSV y seleccionar las columnas deseadas
         with open(archivo_csv, 'r') as file:
