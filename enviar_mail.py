@@ -4,12 +4,16 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 
+from dotenv import load_dotenv
+
 import os
 
 attachment_files = ['precios0.pdf', 'precios1.pdf', 'precios2.pdf', 'precios3.pdf']
 
 def enviar_email():
 
+    load_dotenv()
+    
     # Configuración del servidor SMTP y credenciales
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
