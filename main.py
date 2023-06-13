@@ -19,6 +19,7 @@ from googleapiclient.http import MediaFileUpload
 from twilio.rest import Client
 #-----------------------------------------------------------------------------#
 from do_pdf import *
+from enviar_mail import *
 
 
 
@@ -289,3 +290,5 @@ for pdf in contenido:
 carpeta_drive = 'https://drive.google.com/drive/folders/1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA?usp=sharing'
 
 print(aumentados)
+
+enviar_email()
