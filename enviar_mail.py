@@ -50,5 +50,3 @@ def enviar_email():
         server.login(username, password)
         server.send_message(msg)
         print('Correo enviado correctamente')
-
-enviar_email()
