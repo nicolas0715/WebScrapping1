@@ -263,9 +263,8 @@ ruta_raiz = os.getcwd()
 #ruta_archivo_credenciales = os.path.join(ruta_raiz, 'driven-striker-386616-85af28be82bc.json') 
 #credentials = service_account.Credentials.from_service_account_file(ruta_archivo_credenciales, scopes=['https://www.googleapis.com/auth/drive'])
 #drive_service = build('drive', 'v3', credentials=credentials)
-
+print(os.getenv('DRIVE_JSON'))
 drive_json = json.loads(os.getenv('DRIVE_JSON'))
-print(drive_json)
 credentials = service_account.Credentials.from_service_account_info(drive_json, scopes=['https://www.googleapis.com/auth/drive'])
 drive_service = build('drive', 'v3', credentials=credentials)
 
