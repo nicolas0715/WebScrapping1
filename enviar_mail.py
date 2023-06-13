@@ -4,8 +4,6 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 
-from decouple import config
-
 import os
 
 attachment_files = ['precios0.pdf', 'precios1.pdf', 'precios2.pdf', 'precios3.pdf']
