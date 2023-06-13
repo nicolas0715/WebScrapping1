@@ -10,7 +10,7 @@ import os
 
 attachment_files = ['precios0.pdf', 'precios1.pdf', 'precios2.pdf', 'precios3.pdf']
 
-def enviar_email(subject):
+def enviar_email(subject, message):
 
     load_dotenv()
     
@@ -23,8 +23,7 @@ def enviar_email(subject):
     # Configuración del correo electrónico
     from_addr = 'oteronicolas3@gmail.com'
     to_addr = 'oteronicolas3@gmail.com'
-    message = 'Cuerpo del correo'
-
+        
     # Crear objeto MIMEMultipart
     msg = MIMEMultipart()
     msg['From'] = from_addr

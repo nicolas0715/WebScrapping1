@@ -255,9 +255,9 @@ pdf_gen()
 
 if len(aumentados) != 0:
     # Enviar email
-    enviar_email('Hay algunos aumentos: '+ str(aumentados))
+    enviar_email('Hay algunos aumentos: ', [n for n in aumentados])
 else:
-    enviar_email('No hay aumentos por ahora.')
+    enviar_email('No hay aumentos por ahora.', 'No ha aumentado nada, pero aca estan las listas de precios por las dudas!')
 
 
 
@@ -312,5 +312,3 @@ print('Los productos que aumentaron son: ', aumentados)
 # Agregar la logica para que te envie el email SOLAMENTE si hay productos aumentados.
 
 # Agregar la logica para que, si te envia el mail, solamente envie la lista que contiene productos que aumentaron.
-
-# Agregar la logica para que los productos aumentados aparezcan con el fondo rojo en el pdf.
