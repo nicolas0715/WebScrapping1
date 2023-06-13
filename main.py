@@ -290,4 +290,13 @@ carpeta_drive = 'https://drive.google.com/drive/folders/1vDvnpUTIsC53sAyfBK3BamI
 
 print('Los productos que aumentaron son: ', aumentados)
 
+# Editar el pdf para poner la fuente un poco mas grande, en negrita, y quizas agregarle padding top y bottom.
+
+# Agregar la logica para que te envie el email SOLAMENTE si hay productos aumentados.
+
+# Agregar la logica para que, si te envia el mail, solamente envie la lista que contiene productos que aumentaron.
+
+# Agregar la logica para que los productos aumentados aparezcan con el fondo rojo en el pdf.
+
+
 enviar_email()
