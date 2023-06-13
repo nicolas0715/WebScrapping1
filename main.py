@@ -18,7 +18,7 @@ from googleapiclient.http import MediaFileUpload
 
 from twilio.rest import Client
 #-----------------------------------------------------------------------------#
-from do_txts import *
+from do_pdf import *
 
 
 
@@ -243,14 +243,14 @@ with open('productos.csv', 'w', newline='') as archivo_csv:
     escritor_csv.writeheader()
     escritor_csv.writerows(datos_viejos2)
 
-#Llamar a la funcion que crea txt general
-txt1(fecha_formateada)
-
-#Llamar a la funcion que genera un txt por lista de productos
+#Llamar a la funcion que genera un pdf por lista de productos
 listas = productos1, productos2, productos3, productos4
 for l, lista in enumerate(listas):
-    txt2(l, lista, fecha_formateada)
+    #Hacer los pdfs individuales
+    pdf_ind(l, lista)
 
+#PDF general
+pdf_gen()
 
 
 #Guardar en el drive
@@ -276,12 +276,12 @@ for archivo in archivos:
 contenido = os.listdir(ruta_raiz)
 
 archivos_subir = []
-for txt in contenido:
-    if txt.endswith('.txt') and txt != 'requirements.txt':
-        ruta_a = os.path.join(ruta_raiz, txt)
-        archivos_subir.append(txt)
-        media_body = MediaFileUpload(txt, mimetype='text/plain', resumable=True)
-        archivo_metadata = {'name': txt, 'parents': [carpeta_id]}
+for pdf in contenido:
+    if pdf.endswith('.pdf'):
+        ruta_a = os.path.join(ruta_raiz, pdf)
+        archivos_subir.append(pdf)
+        media_body = MediaFileUpload(pdf, mimetype='application/pdf', resumable=True)
+        archivo_metadata = {'name': pdf, 'parents': [carpeta_id]}
         archivo = drive_service.files().create(body=archivo_metadata, media_body=media_body).execute()
 
 
