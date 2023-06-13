@@ -255,7 +255,7 @@ pdf_gen()
 
 if len(aumentados) != 0:
     # Enviar email
-    enviar_email('Hay algunos aumentos: ', str(aumentados))
+    enviar_email('Hay algunos aumentos: '+ str(aumentados))
 else:
     enviar_email('No hay aumentos por ahora.')
 
