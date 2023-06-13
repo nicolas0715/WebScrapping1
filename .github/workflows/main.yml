@@ -28,4 +28,5 @@ jobs:
     - name: Ejecutar script Python
       env:
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        DRIVE_JSON: ${{ secrets.DRIVE_JSON }}
       run: python main.py

@@ -2,7 +2,6 @@ import time
 import os
 import csv
 import math
-import json
 #-----------------------------------------------------------------------------#
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -260,13 +259,10 @@ pdf_gen()
 ruta_raiz = os.getcwd()
 # Credenciales de Google Drive
 
-#ruta_archivo_credenciales = os.path.join(ruta_raiz, 'driven-striker-386616-85af28be82bc.json') 
-#credentials = service_account.Credentials.from_service_account_file(ruta_archivo_credenciales, scopes=['https://www.googleapis.com/auth/drive'])
-#drive_service = build('drive', 'v3', credentials=credentials)
-print(os.getenv('DRIVE_JSON'))
-drive_json = json.loads(os.getenv('DRIVE_JSON'))
-credentials = service_account.Credentials.from_service_account_info(drive_json, scopes=['https://www.googleapis.com/auth/drive'])
+ruta_archivo_credenciales = os.path.join(ruta_raiz, 'driven-striker-386616-85af28be82bc.json') 
+credentials = service_account.Credentials.from_service_account_file(ruta_archivo_credenciales, scopes=['https://www.googleapis.com/auth/drive'])
 drive_service = build('drive', 'v3', credentials=credentials)
+
 
 # Obtener la lista de archivos en la carpeta para eliminarlos
 carpeta_id = '1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA'
