@@ -214,7 +214,7 @@ aumentados = []
 for producto in datos_viejos1:
     #Precio en datos_viejos1    =!     Precios en precios_dict
     if precios_dict.get(producto['nombre']) != producto['precio']:
-        aumentados.append(precios_dict.get(producto['nombre']))
+        aumentados.append(producto['nombre'])
 
 # Una vez comparados los datos, ya se pueden guardar en el archivo csv
 
