@@ -289,6 +289,6 @@ for pdf in contenido:
 #Link de la carpeta del drive
 carpeta_drive = 'https://drive.google.com/drive/folders/1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA?usp=sharing'
 
-print(aumentados)
+print('Los productos que aumentaron son: ', aumentados)
 
 enviar_email()

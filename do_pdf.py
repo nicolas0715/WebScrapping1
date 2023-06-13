@@ -56,7 +56,6 @@ def pdf_ind(l, lista):
             for row in csv_reader:
                 if row[0] == prod:  # Filtrar los productos deseados
                     datos.append([row[0], row[1], row[-2], row[-1]])
-        print('Los datos son', datos)
 
         # Crear un documento PDF y agregar la tabla
         doc = SimpleDocTemplate(archivo_pdf, pagesize=letter)

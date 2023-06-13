@@ -19,7 +19,6 @@ def enviar_email():
     smtp_port = 587
     username = 'oteronicolas3@gmail.com'
     password = os.getenv('EMAIL_PASSWORD')
-    print(password)
 
     # Configuración del correo electrónico
     from_addr = 'oteronicolas3@gmail.com'
