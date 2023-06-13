@@ -6,16 +6,17 @@ from email import encoders
 
 from decouple import config
 
+import os
+
 attachment_files = ['precios0.pdf', 'precios1.pdf', 'precios2.pdf', 'precios3.pdf']
 
 def enviar_email():
-    pasw_value = config('SECRET_VALUE')
 
     # Configuración del servidor SMTP y credenciales
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
     username = 'oteronicolas3@gmail.com'
-    password = config(pasw_value)
+    password = os.getenv('EMAIL_PASSWORD')
 
     # Configuración del correo electrónico
     from_addr = 'oteronicolas3@gmail.com'
