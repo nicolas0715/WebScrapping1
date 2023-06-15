@@ -266,7 +266,7 @@ for prod in aumentados:
     for n in datos_viejos1:
         if n['nombre'] == prod:
             print(n['precio'])
-    print('El precio nuevo es:' + precios_dict[prod])
+    print('El precio nuevo es:' + str(precios_dict[prod]))
 
 
 
