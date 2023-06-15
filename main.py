@@ -42,7 +42,7 @@ with open(archivo_csv, 'r') as archivo:
     lector_csv = csv.DictReader(archivo)
     for fila in lector_csv:
         datos_viejos1.append(fila)
-        
+print(datos_viejos1)
 #--------------------------------------------------------------------------------------------------------------------#
 
 
@@ -202,6 +202,7 @@ for lista in (productos1, productos2, productos3, productos4):
                 
 # Cerrar el navegador
 driver.quit()
+print(precios_dict)
 
 #Conocer los productos que aumentaron
 aumentados = []
@@ -260,7 +261,12 @@ else:
     enviar_email('No hay aumentos por ahora.', 'No ha aumentado nada, pero aca estan las listas de precios por las dudas!')
 
 
-
+for prod in aumentados:
+    print(prod)
+    for n in datos_viejos1:
+        if n['nombre'] == prod:
+            print(n['precio'])
+    print('El precio nuevo es:' + precios_dict[prod])
 
 
 
