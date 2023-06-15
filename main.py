@@ -315,3 +315,10 @@ print('Los productos que aumentaron son: ', aumentados)
 # Agregar la logica para que te envie el email SOLAMENTE si hay productos aumentados.
 
 # Agregar la logica para que, si te envia el mail, solamente envie la lista que contiene productos que aumentaron.
+
+
+
+
+
+
+# Hay que agregar un archivo para que pushee el archivo csv al repo, asi se actualiza. Me parece que es lo que va a solucionar el tema de que siempre envia el email diciendo que aumentaron, cuando a veces no es asi.
