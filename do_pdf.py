@@ -62,7 +62,7 @@ def pdf_ind(l, lista):
 
         # Definir el estilo de la tabla
         estilo = TableStyle([
-            ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+            ('BACKGROUND', (0, 0), (-1, 0), colors.green),
             ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
             ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
@@ -73,7 +73,7 @@ def pdf_ind(l, lista):
             ('FONTWEIGHT', (0, 0), (-1, -1), 'BOLD'),
             ('TOPPADDING', (0, 1), (-1, -1), 2), 
             ('BOTTOMPADDING', (0, 1), (-1, -1), 10),
-            ('FONTSIZE', (0, 0), (-1, -1), 16),
+            ('FONTSIZE', (0, 0), (-1, -1), 14),
         ])
 
         # Crear la tabla
