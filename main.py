@@ -321,4 +321,4 @@ print('Los productos que aumentaron son: ', aumentados)
 
 
 
-# Hay que agregar un archivo para que pushee el archivo csv al repo, asi se actualiza. Me parece que es lo que va a solucionar el tema de que siempre envia el email diciendo que aumentaron, cuando a veces no es asi.
+# Hay que agregar un archivo para que pushee el archivo csv al repo, asi se actualiza. Me parece que es lo que va a solucionar el tema de que siempre envia el email diciendo que aumentaron, cuando a veces no es asi. 
