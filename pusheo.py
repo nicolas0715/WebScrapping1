@@ -1,6 +1,5 @@
 import os
 from git import Repo
-from dotenv import load_dotenv
 
 
 def pushear():
@@ -18,7 +17,7 @@ def pushear():
     # Commit con un mensaje
     repo.index.commit('Commit desde script')
     
-    token = os.getenv('NICO_TOKEN')
+    token = os.getenv('GITHUB_TOKEN')
 
     # Realizar el push al repositorio remoto
     origin = repo.remote('origin')
