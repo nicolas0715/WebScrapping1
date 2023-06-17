@@ -21,6 +21,7 @@ from twilio.rest import Client
 #-----------------------------------------------------------------------------#
 from do_pdf import *
 from enviar_mail import *
+from pusheo import *
 
 
 
@@ -324,3 +325,7 @@ print('Los productos que aumentaron son: ', aumentados)
 # Hay que agregar un archivo para que pushee el archivo csv al repo, asi se actualiza. Me parece que es lo que va a solucionar el tema de que siempre envia el email diciendo que aumentaron, cuando a veces no es asi. 
 
 # O subir el archivo al drive y obtener los precios de ahi.
+
+# Pushear los cambios del csv al repo
+
+pushear()
