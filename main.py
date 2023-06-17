@@ -189,7 +189,7 @@ for lista in (productos1, productos2, productos3, productos4):
         
         valor_s = BeautifulSoup(str(td_elements[2]), 'html.parser')
         valor = valor_s.td.text.strip()
-        valor = float(valor.replace(',', '.'))
+        valor = float(valor.replace(',', '.')) 
         valor = round(valor, 2)
         if valor == 0.0:
             valor_s = BeautifulSoup(str(td_elements[1]), 'html.parser')
