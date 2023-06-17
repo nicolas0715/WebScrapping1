@@ -220,6 +220,8 @@ for producto in datos_viejos1:
 # Hay que guardar los datos de precios_dict en el archivo csv
 # precios_dict = {
 # 'ACID BORI A SUFA 25G X25S': 3334.51,                       ACID BORI A SUFA 25G X25S,3334.51,25,133.36,140
+
+print(precios_dict)
 if len(aumentados) != 0:
 # Leer el contenido actual del archivo CSV y almacenarlos en una lista de diccionarios
     datos_viejos2 = []
@@ -231,6 +233,7 @@ if len(aumentados) != 0:
     for product in datos_viejos2:
         if product['nombre'] in aumentados:
             #Setear el precio nuevo por el viejo
+            print(product)
             product['precio'] = precios_dict.get(product['nombre'])
             product['precio_unitario'] = round((precios_dict.get(product['nombre'])) / int(product['unidades']), 2)
             product['precio_sugerido'] = math.ceil(product['precio_unitario'] / 10) * 10
