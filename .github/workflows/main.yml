@@ -32,6 +32,9 @@ jobs:
       run: |
           git config user.name "nicolas0715"
           git config user.email "oteronicolas3@gmail.com"
+    
+    - name: Imprimir el contenido de GITHUB_TOKEN
+      run: echo "GITHUB_TOKEN = $GITHUB_TOKEN"
 
     - name: Ejecutar script Python
       run: python main.py
