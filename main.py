@@ -326,6 +326,3 @@ print('Los productos que aumentaron son: ', aumentados)
 
 # O subir el archivo al drive y obtener los precios de ahi.
 
-# Pushear los cambios del csv al repo
-
-pushear()
