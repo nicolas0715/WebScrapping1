@@ -24,9 +24,18 @@ jobs:
 
     - name: Instalar dependencias
       run: pip install -r requirements.txt
+    
+    - name: Setear variable de entorno
+      run: echo "NICO_TOKEN=$GITHUB_TOKEN" >> $GITHUB_ENV
+
+    - name: Configurar nombre de usuario y correo electrónico
+      run: |
+          git config user.name "nicolas0715"
+          git config user.email "oteronicolas3@gmail.com"
 
     - name: Ejecutar script Python
       env:
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         DRIVE_JSON: ${{ secrets.DRIVE_JSON }}
+        GITHUB_TOKEN: ${{ secrets.NICO_TOKEN }}
       run: python main.py
