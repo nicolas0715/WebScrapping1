@@ -21,7 +21,6 @@ from twilio.rest import Client
 #-----------------------------------------------------------------------------#
 from do_pdf import *
 from enviar_mail import *
-from pusheo import *
 
 
 
