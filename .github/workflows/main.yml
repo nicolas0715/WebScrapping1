@@ -42,4 +42,4 @@ jobs:
     - name: Pushear al repositorio
       run: python pusheo.py
       env:
-        GITHUB_TOKEN: ${{ secrets.NICO_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
