@@ -3,7 +3,7 @@ from git import Repo
 
 def push():
     # Token
-    token = os.getenv('NICO_TOKEN')
+    token = os.getenv('NICO_TOKEN') 
     print(token)
     
     # Ruta local al repositorio
