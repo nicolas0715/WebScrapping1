@@ -31,13 +31,13 @@ jobs:
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         DRIVE_JSON: ${{ secrets.DRIVE_JSON }}
         #GITHUB_TOKEN2: ${{ secrets.NICO_TOKEN2 }}
-        
+
     - name: Push CSV file
       run: |
           git config user.name "nicolas0715"
           git config user.email "oteronicolas3@gmail.com"
           git add productos.csv
           git commit -m "Agregando productos.csv"
-          git push
+          git push origin master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
