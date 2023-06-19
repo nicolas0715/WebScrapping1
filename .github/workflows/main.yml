@@ -34,8 +34,8 @@ jobs:
           git config user.email "oteronicolas3@gmail.com"
 
     - name: Ejecutar script Python
-      run: python main.py
       env:
         GITHUB_TOKEN: ${{ secrets.NICO_TOKEN }}
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         DRIVE_JSON: ${{ secrets.DRIVE_JSON }}
+      run: python main.py
