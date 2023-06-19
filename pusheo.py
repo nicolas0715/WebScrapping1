@@ -4,7 +4,7 @@ from git import Repo
 def push():
     try:
         # Ruta local al repositorio
-        repo_path = 'C:/Users/otero/Desktop/Pokio/Programacion/Proyectos/Proyectos_varios/Web_Scrapping1'
+        #repo_path = 'C:/Users/otero/Desktop/Pokio/Programacion/Proyectos/Proyectos_varios/Web_Scrapping1'
 
         # Pero para ejecutarlo con Actions, necesito la ruta local
         ruta_raiz = os.getcwd()
@@ -18,7 +18,7 @@ def push():
         # Commit con un mensaje
         repo.index.commit('Commit desde script')
 
-        token = os.getenv('NICO_TOKEN')
+        token = os.getenv('NICO_TOKEN2')
         print(token)
 
         # Realizar el push al repositorio remoto

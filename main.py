@@ -16,8 +16,6 @@ from bs4 import BeautifulSoup
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
-
-from twilio.rest import Client
 #-----------------------------------------------------------------------------#
 from do_pdf import *
 from enviar_mail import *

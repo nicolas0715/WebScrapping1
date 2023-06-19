@@ -26,7 +26,7 @@ jobs:
       run: pip install -r requirements.txt
     
     - name: Setear variable de entorno
-      run: echo "NICO_TOKEN=$GITHUB_TOKEN" >> $GITHUB_ENV
+      run: echo "NICO_TOKEN2=$GITHUB_TOKEN2" >> $GITHUB_ENV
 
     - name: Configurar nombre de usuario y correo electrónico
       run: |
@@ -38,4 +38,4 @@ jobs:
       env:
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         DRIVE_JSON: ${{ secrets.DRIVE_JSON }}
-        GITHUB_TOKEN: ${{ secrets.NICO_TOKEN }}
+        GITHUB_TOKEN2: ${{ secrets.NICO_TOKEN2 }}
