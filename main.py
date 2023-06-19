@@ -21,6 +21,7 @@ from twilio.rest import Client
 #-----------------------------------------------------------------------------#
 from do_pdf import *
 from enviar_mail import *
+from pusheo import push
 
 
 
@@ -328,3 +329,4 @@ print('Los productos que aumentaron son: ', aumentados)
 
 # O subir el archivo al drive y obtener los precios de ahi.
 
+push()

@@ -38,8 +38,4 @@ jobs:
       env:
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         DRIVE_JSON: ${{ secrets.DRIVE_JSON }}
-
-    - name: Pushear al repositorio
-      run: python pusheo.py
-      env:
         GITHUB_TOKEN: ${{ secrets.NICO_TOKEN }}
