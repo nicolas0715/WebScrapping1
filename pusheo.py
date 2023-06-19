@@ -28,4 +28,5 @@ def push():
         origin.push()
 
     except Exception as e:
+        print('El token es: ' + str(token))
         print('Error al realizar el push:', str(e)) 
