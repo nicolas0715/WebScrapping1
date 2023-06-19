@@ -16,7 +16,7 @@ repo.index.add('productos.csv')
 # Commit con un mensaje
 repo.index.commit('Commit desde script')
 
-token = os.getenv('GITHUB_TOKEN')
+token = os.getenv('NICO_TOKEN')
 
 # Realizar el push al repositorio remoto
 origin = repo.remote('origin')
