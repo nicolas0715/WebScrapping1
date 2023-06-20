@@ -3,7 +3,7 @@ import os
 import csv
 import math
 import json
-#-----------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------------------------------------------------#
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -16,21 +16,10 @@ from bs4 import BeautifulSoup
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
-#-----------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------------------------------------------------#
 from do_pdf import *
 from enviar_mail import *
 from pusheo import push
-
-
-
-
-
-#--------------------------------------- Estas lineas pasar al futuro archivo para crear los .txt
-from datetime import date
-fecha_actual = date.today()
-fecha_formateada = 'Fecha ' + fecha_actual.strftime("%d/%m/%Y")
-#---------------------------------------------------------------
-
 
 #--------------------------------------- Obtener Valores Viejos -----------------------------------------------------#
 
@@ -204,23 +193,10 @@ driver.quit()
 #Conocer los productos que aumentaron
 aumentados = []
 
-# datos_viejos = [
-# {'nombre': 'ACID BORI A SUFA 25G X25S', 'precio': 3334.51, 'unidades': 25, 'precio_unitario': 133.36, 'precio_sugerido': 140}
-
-# precios_dict = {
-# 'ACID BORI A SUFA 25G X25S': 3334.51,
 for producto in datos_viejos1:
-    #Precio en datos_viejos1    =!     Precios en precios_dict
     if str(precios_dict.get(producto['nombre'])) != producto['precio']:
         aumentados.append(producto['nombre'])
 
-# Una vez comparados los datos, ya se pueden guardar en el archivo csv
-
-# Hay que guardar los datos de precios_dict en el archivo csv
-# precios_dict = {
-# 'ACID BORI A SUFA 25G X25S': 3334.51,                       ACID BORI A SUFA 25G X25S,3334.51,25,133.36,140
-
-print(precios_dict)
 if len(aumentados) != 0:
 # Leer el contenido actual del archivo CSV y almacenarlos en una lista de diccionarios
     datos_viejos2 = []
@@ -228,7 +204,7 @@ if len(aumentados) != 0:
         lector_csv = csv.DictReader(archivo_csv)
         for fila in lector_csv:
             datos_viejos2.append(fila)
-#{'nombre': 'ACID BORI A SUFA 25G X25S', 'precio': 3334.51, 'unidades': 25, 'precio_unitario': 133.36, 'precio_sugerido': 140},
+
     for product in datos_viejos2:
         if product['nombre'] in aumentados:
             #Setear el precio nuevo por el viejo
@@ -262,41 +238,30 @@ else:
 
 
 for prod in aumentados:
-    print(prod)
     for n in datos_viejos1:
         if n['nombre'] == prod:
             print('El precio viejo era: ' + str(n['precio']))
-    print('El precio nuevo es: ' + str(precios_dict[prod]))
-
-
-
-
-
-#Guardar en el drive
+            
+#--------------------------------------------------- Subir a Google Drive --------------------------------------------------- #
 
 #Ruta raiz
 ruta_raiz = os.getcwd()
 # Credenciales de Google Drive
-
-#ruta_archivo_credenciales = os.path.join(ruta_raiz, 'driven-striker-386616-85af28be82bc.json') 
-#credentials = service_account.Credentials.from_service_account_file(ruta_archivo_credenciales, scopes=['https://www.googleapis.com/auth/drive'])
-#drive_service = build('drive', 'v3', credentials=credentials)
 drive_json = json.loads(os.environ['DRIVE_JSON'])
 credentials = service_account.Credentials.from_service_account_info(drive_json, scopes=['https://www.googleapis.com/auth/drive'])
 drive_service = build('drive', 'v3', credentials=credentials)
 
 
-# Obtener la lista de archivos en la carpeta para eliminarlos
+# Obtener la lista de archivos en la carpeta
 carpeta_id = '1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA'
 result = drive_service.files().list(q=f"'{carpeta_id}' in parents", fields="files(id)").execute()
 archivos = result.get('files', [])
+
 # Eliminar cada archivo de la carpeta
 for archivo in archivos:
     drive_service.files().delete(fileId=archivo['id']).execute()
 
-
-# Subir a Google Drive
-
+# Subir archivos pdfs
 contenido = os.listdir(ruta_raiz)
 
 archivos_subir = []
@@ -312,19 +277,5 @@ for pdf in contenido:
 #Link de la carpeta del drive
 carpeta_drive = 'https://drive.google.com/drive/folders/1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA?usp=sharing'
 
-print('Los productos que aumentaron son: ', aumentados)
-
-# Agregar la logica para que te envie el email SOLAMENTE si hay productos aumentados.
-
-# Agregar la logica para que, si te envia el mail, solamente envie la lista que contiene productos que aumentaron.
-
-
-
-
-
-
-# Hay que agregar un archivo para que pushee el archivo csv al repo, asi se actualiza. Me parece que es lo que va a solucionar el tema de que siempre envia el email diciendo que aumentaron, cuando a veces no es asi. 
-
-# O subir el archivo al drive y obtener los precios de ahi.
-
+#-------------------------------------------------- Pushear al repositorio -------------------------------------------------- #
 push()
