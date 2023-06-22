@@ -225,14 +225,21 @@ if len(aumentados) != 0:
 listas = productos1, productos2, productos3, productos4
 for l, lista in enumerate(listas):
     #Hacer los pdfs individuales
-    pdf_ind(l, lista)
+    pdf_ind(int(l) + 1, lista)
 
 #PDF general
 pdf_gen()
-
+listas = []
 if len(aumentados) != 0:
+    # Detectar en que archivo pdf estan los productos aumentados
+    for lista, nombre in zip((productos1,productos2,productos3,productos4),('productos1','productos2','productos3','productos4',)):
+        for p in lista:
+            for pr in aumentados:
+                if p == pr:
+                    if nombre not in listas:
+                        listas.append(nombre)
     # Enviar email
-    enviar_email(f'Aumentaron {len(aumentados)} productos: ', str([n for n in aumentados]))
+    enviar_email(f'Aumentaron {len(aumentados)} productos: ', ('Tendrias que imprimir: ' + str([l for l in listas]) + '. Aumentaron estos productos: ' + str([n for n in aumentados])))
 else:
     enviar_email('No hay aumentos por ahora.', 'No ha aumentado nada, pero aca estan las listas de precios por las dudas!')
 
