@@ -1,7 +1,5 @@
-### WebScrapping
+# Proyecto de Web Scrapping.
 
-## Proyecto de Nicolas Otero
+## :nose: *Nicolas Otero*
 
-Programa desarrollado a raiz de la necesidad de encontrar una manera de tener siempre los precios actualizados. 
-El programa busca ciertos productos, que son los que mas ventas tienen, y genera una lista con todos los productos
-y sus respectivos precios al dia de la ejecucion del programa.
+### Falta agregar para que avise en que archivo esta el producto que aumento.
