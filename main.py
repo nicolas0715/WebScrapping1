@@ -239,7 +239,8 @@ if len(aumentados) != 0:
                     if nombre not in listas:
                         listas.append(nombre)
     # Enviar email
-    enviar_email(f'Aumentaron {len(aumentados)} productos: ', ('Tendrias que imprimir: ' + str([l for l in listas]) + '. Aumentaron estos productos: ' + str([n for n in aumentados])))
+    msj1 = f'Tendiars que imprimir {[l for l in listas]}, porque aumentaron estos productos: {[n for n in aumentados]}'
+    enviar_email(f'Aumentaron {len(aumentados)} productos: ', str(msj1))
 else:
     enviar_email('No hay aumentos por ahora.', 'No ha aumentado nada, pero aca estan las listas de precios por las dudas!')
 
