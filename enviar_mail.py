@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 import os
 
-attachment_files = ['productos0.pdf', 'productos1.pdf', 'productos2.pdf', 'productos3.pdf']
+attachment_files = ['productos1.pdf', 'productos2.pdf', 'productos3.pdf', 'productos4.pdf']
 
 def enviar_email(subject, message):
 
