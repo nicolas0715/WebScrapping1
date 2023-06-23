@@ -229,6 +229,32 @@ for l, lista in enumerate(listas):
 
 #PDF general
 pdf_gen()
+
+html_mail1 = f'''
+<h2 style='margin:5px auto;'>Imprimir {[l for l in listas]}</h2>
+<h3 style='margin:5px auto;'>Porque aumentaron estos productos:</h3>
+<div style="display: flex; justify-content: center;"> 
+    <table style="margin: 10px 20px;">
+        <th colspan="2">Precio Anterior</th>
+'''
+for producto in aumentados:
+    html_mail1 += f'<tr><td>{producto}</td>'
+    html_mail1 += f'<td>{datos_viejos1[producto]}</td></tr>'
+
+html_mail1 += '''
+</table>
+<table style="margin: 10px 20px;">
+    <th colspan="2">Precio Nuevo</th>
+'''
+
+for producto in aumentados:
+    html_mail1 += f'<tr><td>{producto}</td>'
+    html_mail1 += f'<td>{precios_dict[producto]}</td></tr>'
+
+html_mail1 += '''
+</table>
+</div>
+'''
 listas = []
 if len(aumentados) != 0:
     # Detectar en que archivo pdf estan los productos aumentados
@@ -239,8 +265,8 @@ if len(aumentados) != 0:
                     if nombre not in listas:
                         listas.append(nombre)
     # Enviar email
-    msj1 = f'Tendiars que imprimir {[l for l in listas]}, porque aumentaron estos productos: {[n for n in aumentados]}'
-    enviar_email(f'Aumentaron {len(aumentados)} productos: ', str(msj1))
+    msj1 = f'Tendrias que imprimir {[l for l in listas]}, porque aumentaron estos productos: {[n for n in aumentados]}'
+    enviar_email(f'Aumentaron {len(aumentados)} productos: ', html_mail1)
 else:
     enviar_email('No hay aumentos por ahora.', 'No ha aumentado nada, pero aca estan las listas de precios por las dudas!')
 
