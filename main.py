@@ -30,6 +30,7 @@ with open(archivo_csv, 'r') as archivo:
     lector_csv = csv.DictReader(archivo)
     for fila in lector_csv:
         datos_viejos1.append(fila)
+print(datos_viejos1)
 #--------------------------------------------------------------------------------------------------------------------#
 
 
