@@ -250,8 +250,9 @@ html_mail1 = f'''
         <th colspan="2">Precio Anterior</th>
 '''
 for producto in aumentados:
-    html_mail1 += f'<tr><td>{producto}</td>'
-    html_mail1 += f'<td>{datos_viejos1["precio_sugerido"]}</td></tr>'
+    for producto in datos_viejos1:
+        html_mail1 += f'<tr><td>{producto}</td>'
+        html_mail1 += f'<td>{producto["precio_sugerido"]}</td></tr>'
 
 html_mail1 += '''
 </table>
@@ -261,7 +262,7 @@ html_mail1 += '''
 
 for producto in aumentados:
     html_mail1 += f'<tr><td>{producto}</td>'
-    html_mail1 += f'<td>{precios_dict[producto]}</td></tr>'
+    html_mail1 += f'<td>{precios_dict.get(producto["nombre"])}</td></tr>'
 
 html_mail1 += '''
 </table>
