@@ -31,7 +31,7 @@ def enviar_email(subject, message):
     msg['Subject'] = subject
 
     # Adjuntar cuerpo del correo
-    msg.attach(MIMEText(message, 'plain'))
+    msg.attach(MIMEText(message, 'html'))
 
     # Adjuntar archivos
     for attachment_file in attachment_files:
