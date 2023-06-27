@@ -262,7 +262,7 @@ html_mail1 += '''
 
 for producto in aumentados:
     html_mail1 += f'<tr><td>{producto}</td>'
-    html_mail1 += f'<td>{precios_dict.get(producto["nombre"])}</td></tr>'
+    html_mail1 += f'<td>{precios_dict.get(producto)}</td></tr>'
 
 html_mail1 += '''
 </table>
