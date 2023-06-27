@@ -253,7 +253,9 @@ for l, producto in enumerate(aumentados):
         if str(producto) == str(producto_dict):
             l.append(precio)
 
+print('='*80)
 print(productos_html)
+print('='*80)
 
 
 
