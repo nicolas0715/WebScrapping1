@@ -231,6 +231,17 @@ for l, lista in enumerate(listas):
 #PDF general
 pdf_gen()
 
+# Imprimir clarito
+
+print('*'*50)
+print(datos_viejos1)
+print('*'*50)
+print('='*50)
+print('*'*50)
+print(precios_dict)
+print('*'*50)
+
+
 html_mail1 = f'''
 <h2 style='margin:5px auto;'>Imprimir {[l for l in listas]}</h2>
 <h3 style='margin:5px auto;'>Porque aumentaron estos productos:</h3>
@@ -240,7 +251,7 @@ html_mail1 = f'''
 '''
 for producto in aumentados:
     html_mail1 += f'<tr><td>{producto}</td>'
-    html_mail1 += f'<td>{datos_viejos1[producto]}</td></tr>'
+    html_mail1 += f'<td>{datos_viejos1["precio_sugerido"]}</td></tr>'
 
 html_mail1 += '''
 </table>
