@@ -243,15 +243,16 @@ print('*'*50)
 
 productos_html = dict()
 for l, producto in enumerate(aumentados):
-    l = []
+    lista = []
     for producto_list in datos_viejos1:
         if str(producto) == producto_list['nombre']:
             precio_viejo = producto_list['precio_sugerido']
-            l.append(str(producto))
-            l.append(precio_viejo)
+            lista.append(str(producto))
+            lista.append(precio_viejo)
     for producto_dict, precio in precios_dict.items():
         if str(producto) == str(producto_dict):
-            l.append(precio)
+            lista.append(precio)
+    productos_html[f'Producto{l}'] = lista
 
 print('='*80)
 print(productos_html)
