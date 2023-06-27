@@ -246,31 +246,28 @@ for l, producto in enumerate(aumentados):
     lista = []
     for producto_list in datos_viejos1:
         if str(producto) == producto_list['nombre']:
-            precio_viejo = producto_list['precio_sugerido']
+            precio_viejo = producto_list['precio']
             lista.append(str(producto))
             lista.append(precio_viejo)
     for producto_dict, precio in precios_dict.items():
         if str(producto) == str(producto_dict):
             lista.append(precio)
-    productos_html[f'Producto{l}'] = lista
+    productos_html[f'Producto{l+1}'] = lista
 
 print('='*80)
 print(productos_html)
 print('='*80)
 
-
-
+# Falta arreglar para que se impriman los nombres de las listas
 html_mail1 = f'''
-<h2 style='margin:5px auto;'>Imprimir {[l for l in listas]}</h2>
-<h3 style='margin:5px auto;'>Porque aumentaron estos productos:</h3>
+<h3 style='margin:5px auto;'>Estos son los productos que aumentaros:</h3>
 <div style="display: flex; justify-content: center;"> 
     <table style="margin: 10px 20px;">
         <th colspan="2">Precio Anterior</th>
 '''
-for producto in aumentados:
-    for producto in datos_viejos1:
-        html_mail1 += f'<tr><td>{producto}</td>'
-        html_mail1 += f'<td>{producto["precio_sugerido"]}</td></tr>'
+for producto, valores in productos_html.items():
+    html_mail1 += f'<tr><td>{valores[0]}</td>'
+    html_mail1 += f'<td>{valores[1]}</td></tr>'
 
 html_mail1 += '''
 </table>
@@ -278,9 +275,9 @@ html_mail1 += '''
     <th colspan="2">Precio Nuevo</th>
 '''
 
-for producto in aumentados:
-    html_mail1 += f'<tr><td>{producto}</td>'
-    html_mail1 += f'<td>{precios_dict.get(producto)}</td></tr>'
+for producto, valores in productos_html.items():
+    html_mail1 += f'<tr><td>{valores[0]}</td>'
+    html_mail1 += f'<td>{valores[2]}</td></tr>'
 
 html_mail1 += '''
 </table>
@@ -297,7 +294,7 @@ if len(aumentados) != 0:
                         listas.append(nombre)
     # Enviar email
     msj1 = f'Tendrias que imprimir {[l for l in listas]}, porque aumentaron estos productos: {[n for n in aumentados]}'
-    enviar_email(f'Aumentaron {len(aumentados)} productos: ', html_mail1)
+    enviar_email(f'Aumentaron {len(aumentados)} productos, tendrias que imprimir {[l for l in listas]} ', html_mail1)
 else:
     enviar_email('No hay aumentos por ahora.', 'No ha aumentado nada, pero aca estan las listas de precios por las dudas!')
 
