@@ -30,12 +30,11 @@ with open(archivo_csv, 'r') as archivo:
     lector_csv = csv.DictReader(archivo)
     for fila in lector_csv:
         datos_viejos1.append(fila)
-print(datos_viejos1)
 #--------------------------------------------------------------------------------------------------------------------#
 
-
 # Configurar el servicio y el controlador de Selenium
-service = ChromeService(ChromeDriverManager().install())
+desired_version = "114.0.5735.90"
+service = ChromeService(ChromeDriverManager(version=desired_version).install())
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -95,7 +94,7 @@ productos2 = [
             'CAFIASPIRINA 30 CMP', 
             'CAFIASPIRINA PLUS x 20CMP',
             'CURITAS APO ELASTICA`24X8',
-            'DORIXINA 50 CMP',
+            'DORIXINA PACK 10 X 10C VL',
             'MEJORAL PED EXHI 30X10CMP',
             'MIGRAL 500 X 100 CMP',
             'NEXT T FTE 50 SOB',
@@ -198,19 +197,24 @@ for producto in datos_viejos1:
     if str(precios_dict.get(producto['nombre'])) != producto['precio']:
         aumentados.append(producto['nombre'])
 
+print(precios_dict)
+print('Aumentaron ', len(aumentados))
 if len(aumentados) != 0:
 # Leer el contenido actual del archivo CSV y almacenarlos en una lista de diccionarios
     datos_viejos2 = []
     with open('productos.csv', 'r') as archivo_csv:
         lector_csv = csv.DictReader(archivo_csv)
+        print('Lector:', lector_csv, '\n')
         for fila in lector_csv:
             datos_viejos2.append(fila)
 
     for product in datos_viejos2:
         if product['nombre'] in aumentados:
             #Setear el precio nuevo por el viejo
-            print(product)
             product['precio'] = precios_dict.get(product['nombre'])
+            print('Precios_dict ==> ', precios_dict)
+            print(product['nombre'])
+            print(precios_dict.get(product['nombre']))
             product['precio_unitario'] = round((precios_dict.get(product['nombre'])) / int(product['unidades']), 2)
             product['precio_sugerido'] = math.ceil(product['precio_unitario'] / 10) * 10
             
@@ -231,16 +235,6 @@ for l, lista in enumerate(listas):
 #PDF general
 pdf_gen()
 
-# Imprimir clarito
-
-print('*'*50)
-print(datos_viejos1)
-print('*'*50)
-print('='*50)
-print('*'*50)
-print(precios_dict)
-print('*'*50)
-
 productos_html = dict()
 for l, producto in enumerate(aumentados):
     lista = []
@@ -253,10 +247,6 @@ for l, producto in enumerate(aumentados):
         if str(producto) == str(producto_dict):
             lista.append(precio)
     productos_html[f'Producto{l+1}'] = lista
-
-print('='*80)
-print(productos_html)
-print('='*80)
 
 # Falta arreglar para que se impriman los nombres de las listas
 html_mail1 = f'''
