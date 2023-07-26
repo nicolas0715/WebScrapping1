@@ -74,6 +74,9 @@ productos1 = [
             'CLORURO MAGNES A SUFA 33G',
             'ENV ESTE GASANA CAJA X125',
             'ENV ESTE GASANA CAJA X300',
+            'GASA A SUFA 5 10X10',
+            'GASA A SUFA 5 20X20',
+            'GASA A SUFA 5 30X30',
             'VASE A SUFA LIQ X 125 ML',
             'VASE A SUFA LIQ X 250 ML',
             'VASE A SUFA LIQ X 500 ML',
@@ -99,6 +102,7 @@ productos2 = [
             'MIGRAL 500 X 100 CMP',
             'NEXT T FTE 50 SOB',
             'PANU DESC ELITE SUA 6X10U',
+            'RENNIE 12 CMP'
             'SERTAL CTO 50 CMP',
             'SOLU FISI PARA X 100 ML',
             'VICK VITAPYRENA 50 SOB',
@@ -130,9 +134,12 @@ productos3 = [
             'PRES PRIME U/FINO NAR X3U',
             'PRES PRIME WARM VIOL 3UNI',
             'PRES TULIP CLAS 16X3',
+            'TELA ADH HIPO POR25X9M12U',
+            'TELA ADH HIPO POR5X9M 6U',
             'UVASAL 30 SOB (15X2)',
         ]
 productos4 = [
+            'CARBON ACT 250 X 100 CMP',
             'GENIOL 500 X 16 CMP',
             'GENIOL 650 X 16 CMP',
             'GENIOL 1 X 8 CMP',
