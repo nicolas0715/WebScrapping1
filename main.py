@@ -255,31 +255,28 @@ for l, producto in enumerate(aumentados):
             lista.append(precio)
     productos_html[f'Producto{l+1}'] = lista
 
-# Falta arreglar para que se impriman los nombres de las listas
 html_mail1 = f'''
 <h3 style='margin:10px auto; color:green; font-size: 25px;'>Estos son los productos que aumentaros:</h3>
 <div style="display: flex; justify-content: center;"> 
     <table style="margin: 10px 20px; background-color: gray; border: 2px solid black; border-radius: 10px; padding: 0px 8px;">
-        <th colspan="2" style="padding:10px 0px; border-bottom: 2px solid black; font-size: 20px;">Precio Anterior</th>
+        <th style="padding:10px 8px; border-bottom: 2px solid black; font-size: 20px; margin: 4px 15px;">Producto</th>
+        <th style="padding:10px 8px; border-bottom: 2px solid black; font-size: 20px; margin: 4px 15px;">Precio Anterior</th>
+        <th style="padding:10px 8px; border-bottom: 2px solid black; font-size: 20px; margin: 4px 15px;">Precio Actual</th>
+        <th style="padding:10px 8px; border-bottom: 2px solid black; font-size: 20px; margin: 4px 15px;">Variacion</th>
 '''
 for producto, valores in productos_html.items():
-    html_mail1 += f'<tr><td style="padding:5px 10px 5px 0px; border-right: 2px solid black;">{valores[0]}</td>'
-    html_mail1 += f'<td style="text-align:center; padding: 0px 8px;">{valores[1]}</td></tr>'
-
-html_mail1 += '''
-</table>
-<table style="margin: 10px 20px; background-color: gray; border: 2px solid black; border-radius: 10px; padding: 0px 8px;">
-    <th colspan="2" style="padding:10px 0px; border-bottom: 2px solid black; font-size: 20px;">Precio Nuevo</th>
-'''
-
-for producto, valores in productos_html.items():
-    html_mail1 += f'<tr><td style="padding:5px 10px 5px 0px; border-right: 2px solid black;">{valores[0]}</td>'
-    html_mail1 += f'<td style="text-align:center; padding: 0px 8px;">{valores[2]}</td></tr>'
+    html_mail1 += f'<tr><td style="text-align:center;padding:5px 10px 5px 0px; border-right: 2px solid black;">{valores[0]}</td>'
+    html_mail1 += f'<td style="text-align:center;padding:5px 10px 5px 0px; border-right: 2px solid black;">{valores[1]}</td></tr>'
+    html_mail1 += f'<td style="text-align:center;padding:5px 10px 5px 0px; border-right: 2px solid black;">{valores[2]}</td>'
+    html_mail1 += f'<td style="text-align:center;padding:5px 10px 5px 0px">%{(100 * int(valores[2])) / int(valores[1])}</td></tr>'
 
 html_mail1 += '''
 </table>
 </div>
+</body>
+</html>
 '''
+
 listas = []
 if len(aumentados) != 0:
     # Detectar en que archivo pdf estan los productos aumentados
