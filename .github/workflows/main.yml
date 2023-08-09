@@ -1,12 +1,12 @@
 name: Ejecución Diaria
 
-on:
-  schedule:
-    - cron: "30 11,18 * * *"
 #on:
-#  push:
-#    branches:
-#      - master
+#  schedule:
+#    - cron: "30 11,18 * * *"
+on:
+  push:
+    branches:
+      - master
 
 permissions:
   contents: write
@@ -40,4 +40,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.NICO_TOKEN }}
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         DRIVE_JSON: ${{ secrets.DRIVE_JSON }}
+        ASOPRO_USER: ${{ secrets.ASOPRO_USER }}
+        ASOPRO_PSW: ${{ secrets.ASOPRO_PSW }}
       run: python main.py
