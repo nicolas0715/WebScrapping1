@@ -44,10 +44,10 @@ driver.get('https://www.asoprofarma.com.ar/Default.aspx')
 
 # Ingresar credenciales
 username_input = driver.find_element(By.NAME, 'Login1$UserName')
-asopro_user = os.getenv['ASOPRO_USER']
+asopro_user = os.getenv('ASOPRO_USER')
 username_input.send_keys('totino4541')
 password_input = driver.find_element(By.NAME, 'Login1$Password')
-asopro_psw = os.getenv['ASOPRO_PSW']
+asopro_psw = os.getenv('ASOPRO_PSW')
 password_input.send_keys('farma4542')
 password_input.send_keys(Keys.ENTER)
 try:
