@@ -1,12 +1,14 @@
 name: Ejecución Diaria
 
-#on:
-#  schedule:
-#    - cron: "30 11,18 * * *"
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron: "30 11,18 * * *"
+  
+# Descomentar estas lineas para hacer pruebas
+#on:
+#  push:
+#    branches:
+#      - master
 
 permissions:
   contents: write
