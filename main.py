@@ -45,10 +45,8 @@ driver.get('https://www.asoprofarma.com.ar/Default.aspx')
 # Ingresar credenciales
 username_input = driver.find_element(By.NAME, 'Login1$UserName')
 asopro_user = os.getenv('ASOPRO_USER')
-username_input.send_keys('totino4541')
 password_input = driver.find_element(By.NAME, 'Login1$Password')
 asopro_psw = os.getenv('ASOPRO_PSW')
-password_input.send_keys('farma4542')
 password_input.send_keys(Keys.ENTER)
 try:
 # Hacer clic en el elemento <span>
@@ -300,7 +298,7 @@ for prod in aumentados:
             print('El precio viejo era: ' + str(n['precio']))
             
 #--------------------------------------------------- Subir a Google Drive --------------------------------------------------- #
-
+'''
 #Ruta raiz
 ruta_raiz = os.getcwd()
 # Credenciales de Google Drive
@@ -333,6 +331,6 @@ for pdf in contenido:
 
 #Link de la carpeta del drive
 carpeta_drive = 'https://drive.google.com/drive/folders/1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA?usp=sharing'
-
+'''
 #-------------------------------------------------- Pushear al repositorio -------------------------------------------------- #
 push()
