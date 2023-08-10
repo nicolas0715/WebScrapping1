@@ -13,9 +13,6 @@ from selenium.webdriver.common.keys import Keys
 
 from bs4 import BeautifulSoup
 
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload
 #-----------------------------------------------------------------------------------------------------------------------------#
 from do_pdf import *
 from enviar_mail import *
@@ -296,41 +293,6 @@ for prod in aumentados:
     for n in datos_viejos1:
         if n['nombre'] == prod:
             print('El precio viejo era: ' + str(n['precio']))
-            
-#--------------------------------------------------- Subir a Google Drive --------------------------------------------------- #
-'''
-#Ruta raiz
-ruta_raiz = os.getcwd()
-# Credenciales de Google Drive
-drive_json = json.loads(os.environ['DRIVE_JSON'])
-credentials = service_account.Credentials.from_service_account_info(drive_json, scopes=['https://www.googleapis.com/auth/drive'])
-drive_service = build('drive', 'v3', credentials=credentials)
 
-
-# Obtener la lista de archivos en la carpeta
-carpeta_id = '1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA'
-result = drive_service.files().list(q=f"'{carpeta_id}' in parents", fields="files(id)").execute()
-archivos = result.get('files', [])
-
-# Eliminar cada archivo de la carpeta
-for archivo in archivos:
-    drive_service.files().delete(fileId=archivo['id']).execute()
-
-# Subir archivos pdfs
-contenido = os.listdir(ruta_raiz)
-
-archivos_subir = []
-for pdf in contenido:
-    if pdf.endswith('.pdf'):
-        ruta_a = os.path.join(ruta_raiz, pdf)
-        archivos_subir.append(pdf)
-        media_body = MediaFileUpload(pdf, mimetype='application/pdf', resumable=True)
-        archivo_metadata = {'name': pdf, 'parents': [carpeta_id]}
-        archivo = drive_service.files().create(body=archivo_metadata, media_body=media_body).execute()
-
-
-#Link de la carpeta del drive
-carpeta_drive = 'https://drive.google.com/drive/folders/1vDvnpUTIsC53sAyfBK3BamINb2UQFVnA?usp=sharing'
-'''
 #-------------------------------------------------- Pushear al repositorio -------------------------------------------------- #
 push()

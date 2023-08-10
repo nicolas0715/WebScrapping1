@@ -4,7 +4,6 @@ from git import Repo
 def push():
     # Token
     token = os.getenv('NICO_TOKEN') 
-    print(token)
     
     # Ruta local al repositorio
     #repo_path = 'C:/Users/otero/Desktop/Pokio/Programacion/Proyectos/Proyectos_varios/Web_Scrapping1'

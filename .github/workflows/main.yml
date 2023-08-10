@@ -41,7 +41,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.NICO_TOKEN }}
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-        DRIVE_JSON: ${{ secrets.DRIVE_JSON }}
         ASOPRO_USER: ${{ secrets.ASOPRO_USER }}
         ASOPRO_PSW: ${{ secrets.ASOPRO_PSW }}
       run: python main.py
