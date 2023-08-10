@@ -67,13 +67,13 @@ def pdf_ind(l, lista):
             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
             ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
             ('FONTSIZE', (0, 0), (-1, 0), 14),
-            ('BOTTOMPADDING', (0, 0), (-1, 0), 10),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
             ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
             ('GRID', (0, 0), (-1, -1), 1, colors.black),
             ('FONTWEIGHT', (0, 0), (-1, -1), 'BOLD'),
             ('TOPPADDING', (0, 1), (-1, -1), 2), 
             ('BOTTOMPADDING', (0, 1), (-1, -1), 8),
-            ('FONTSIZE', (0, 0), (-1, -1), 14),
+            ('FONTSIZE', (0, 0), (-1, -1), 12),
         ])
 
         # Crear la tabla
