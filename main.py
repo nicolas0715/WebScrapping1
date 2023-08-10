@@ -269,7 +269,7 @@ for producto, valores in productos_html.items():
     html_mail1 += f'<td style="text-align:center;padding:5px 10px 5px 0px; border-right: 2px solid black;">{valores[1]}</td>'
     html_mail1 += f'<td style="text-align:center;padding:5px 10px 5px 0px; border-right: 2px solid black;">{valores[2]}</td>'
     variacion = round((100 * float(valores[2])) / float(valores[1]) - 100, 2)
-    html_mail1 += f'<td style="text-align:center;padding:5px 10px 5px 0px">%{variacion}</td></tr>'
+    html_mail1 += f'<td style="text-align:center;padding:5px 10px 5px 0px">% {variacion}</td></tr>'
 
 html_mail1 += '''
 </table>
