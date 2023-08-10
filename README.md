@@ -1,6 +1,7 @@
 <style>
   h4{
     text-align: center;
+    color: red;
   }
 </style>
 <h1>Proyecto de Web Scrapping.</h1>
