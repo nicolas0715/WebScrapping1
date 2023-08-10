@@ -5,3 +5,5 @@
 <h5>El proyecto se ejecuta todos los dias a las 🕣08:30 y a las 🕞15:30 (Media hora antes de los turnos de atencion) y obtiene los precios de ciertos productos previamente detallados. Esos productos fueron separados en 4 listas dependiendo de la zona del mostrador donde se encuentre el producto en cuestion. Los precios obtenidos son comparados con la informacion en el archivo csv y en el caso que hayan aumentos, envia el email. En cualquiera de los dos casos, realiza un push al repositrio para actualizar el archivo csv.</h5>
 
 <h5>Para lograr el web scrapping tuve que usar la libreria Selenium por su capacidad de interaccion con el navegador, ya que se requieren usuario y contraseña para ingresar al sitio web del proveedor, y con BeautifulSoup no podia lograr, y logre automatizar la ejecucion con GitHub Actions.</h5>
+
+<h5>Me gustaria que los datos perduren en el tiempo, asi que agregare una especie de log en un futuro</h5>
