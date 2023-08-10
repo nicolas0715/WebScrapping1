@@ -2,7 +2,6 @@ import time
 import os
 import csv
 import math
-import json
 #-----------------------------------------------------------------------------------------------------------------------------#
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -12,15 +11,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 from bs4 import BeautifulSoup
-
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload
 #-----------------------------------------------------------------------------------------------------------------------------#
 from do_pdf import *
 from enviar_mail import *
 from pusheo import push
-
 #--------------------------------------- Obtener Valores Viejos -----------------------------------------------------#
 
 archivo_csv = 'productos.csv' # Nombre del archivo CSV
@@ -45,8 +39,10 @@ driver.get('https://www.asoprofarma.com.ar/Default.aspx')
 # Ingresar credenciales
 username_input = driver.find_element(By.NAME, 'Login1$UserName')
 asopro_user = os.getenv('ASOPRO_USER')
+username_input.send_keys('asopro_user')
 password_input = driver.find_element(By.NAME, 'Login1$Password')
 asopro_psw = os.getenv('ASOPRO_PSW')
+password_input.send_keys('asopro_psw')
 password_input.send_keys(Keys.ENTER)
 try:
 # Hacer clic en el elemento <span>
