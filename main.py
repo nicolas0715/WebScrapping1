@@ -44,12 +44,12 @@ password_input = driver.find_element(By.NAME, 'Login1$Password')
 asopro_psw = os.getenv('ASOPRO_PSW')
 password_input.send_keys('asopro_psw')
 password_input.send_keys(Keys.ENTER)
-try:
+#try:
 # Hacer clic en el elemento <span>
-    span_element = driver.find_element(By.CSS_SELECTOR, 'span.ui-button-icon-primary.ui-icon-closethick')
-    span_element.click()
-except:
-    pass
+span_element = driver.find_element(By.CSS_SELECTOR, 'span.ui-button-icon-primary.ui-icon-closethick')
+span_element.click()
+#except:
+#    pass
 
 # Hacer clic en el elemento <a>
 a_element = driver.find_element(By.ID, 'ctl00_Lnkeshop')
