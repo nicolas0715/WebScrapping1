@@ -208,15 +208,16 @@ if len(aumentados) != 0:
         lector_csv = csv.DictReader(archivo_csv)
         for fila in lector_csv:
             datos_viejos2.append(fila)
-
     for product in datos_viejos2:
-        if product['nombre'] in aumentados:
-            #Setear el precio nuevo por el viejo
-            product['precio'] = precios_dict.get(product['nombre'])
-            product['precio_unitario'] = round((precios_dict.get(product['nombre'])) / int(product['unidades']), 2)
-            product['precio_sugerido'] = math.ceil(product['precio_unitario'] / 10) * 10
+        try:
+            if product['nombre'] in aumentados:
+                #Setear el precio nuevo por el viejo
+                product['precio'] = precios_dict.get(product['nombre'])
+                product['precio_unitario'] = round((precios_dict.get(product['nombre'])) / int(product['unidades']), 2)
+                product['precio_sugerido'] = math.ceil(product['precio_unitario'] / 10) * 10
+        except Exception as e:
+            print(f"Error en el producto '{product['nombre']}': {e}")
             
-
     #Escribir los datos actualizados en el archivo
     campos = ['nombre', 'precio', 'unidades', 'precio_unitario', 'precio_sugerido']
     with open('productos.csv', 'w', newline='') as archivo_csv:
