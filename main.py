@@ -142,7 +142,7 @@ productos4 = [
             'GENIOL PLUS R/A 12 CAP',
             'PARACET ISA 30 CMP',
             'PARACET ISA EXH 1G 50X8CM',
-            'PARACET ISA FTE EXHI X500',
+            #'PARACET ISA FTE EXHI X500', 17/08 no esta en el listado de la drogueria, por eso esta comentado.
             'PARACET LAZ VL 20 CMP',
             'TAFIROL EXHI 40 X 10 CMP',
             'TAFIROL FTE EXHI 30X10CMP',
