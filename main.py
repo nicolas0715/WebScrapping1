@@ -213,9 +213,6 @@ if len(aumentados) != 0:
         if product['nombre'] in aumentados:
             #Setear el precio nuevo por el viejo
             product['precio'] = precios_dict.get(product['nombre'])
-            print('Precios_dict ==> ', precios_dict)
-            print(product['nombre'])
-            print(precios_dict.get(product['nombre']))
             product['precio_unitario'] = round((precios_dict.get(product['nombre'])) / int(product['unidades']), 2)
             product['precio_sugerido'] = math.ceil(product['precio_unitario'] / 10) * 10
             
