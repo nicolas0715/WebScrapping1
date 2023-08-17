@@ -143,6 +143,7 @@ productos4 = [
             'PARACET ISA 30 CMP',
             'PARACET ISA EXH 1G 50X8CM',
             #'PARACET ISA FTE EXHI X500', 17/08 no esta en el listado de la drogueria, por eso esta comentado.
+            # Cuando vuelva a la normalidad, copiar esta linea en el csv en la linea 80: 'PARACET ISA FTE EXHI X500,15169.8,50,303.4,310'
             'PARACET LAZ VL 20 CMP',
             'TAFIROL EXHI 40 X 10 CMP',
             'TAFIROL FTE EXHI 30X10CMP',
