@@ -29,6 +29,14 @@ jobs:
     - name: Instalar dependencias
       run: pip install -r requirements.txt
 
+    - name: Download and install ChromeDriver
+      run: |
+          CHROMEDRIVER_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
+          wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          unzip /tmp/chromedriver.zip -d /tmp
+          chmod +x /tmp/chromedriver
+          sudo mv /tmp/chromedriver /usr/local/bin/chromedriver
+
     - name: Setear variable de entorno
       run: echo "NICO_TOKEN=$GITHUB_TOKEN" >> $GITHUB_ENV
     
