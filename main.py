@@ -29,7 +29,7 @@ with open(archivo_csv, 'r') as archivo:
 # Configurar el servicio y el controlador de Selenium
 #desired_version = "114.0.5735.90"
 desired_version = "114.0.5735"  
-service = ChromeService(ChromeDriverManager(version=desired_version).install())
+service = ChromeService(ChromeDriverManager().install())
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(service=service, options=chrome_options)
