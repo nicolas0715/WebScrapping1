@@ -31,7 +31,7 @@ with open(archivo_csv, 'r') as archivo:
 #service = ChromeService(ChromeDriverManager(version=desired_version).install())
 service = ChromeService()
 chrome_options = webdriver.ChromeOptions()
-#chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 # Acceder a la página de inicio de sesión
