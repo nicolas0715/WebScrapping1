@@ -1,0 +1,27 @@
+name: Retry 'Ejecucion Diaria'
+
+on:
+  workflow_run:
+    workflows: ["Ejecución Diaria"]
+    types:
+      - completed
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check if retry is needed
+      run: echo "Retry"
+
+    - name: Retry 'Ejecucion Diaria' on Failure
+      if: steps.check.outputs.retry == 'Retry'
+      uses: actions/checkout@v2
+
+    - name: Trigger 'Ejecucion Diaria'
+      if: steps.check.outputs.retry == 'Retry'
+      run: |
+        gh workflow run "Ejecución Diaria" -s GITHUB_TOKEN=$GITHUB_TOKEN
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

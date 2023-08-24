@@ -52,3 +52,12 @@ jobs:
         ASOPRO_USER: ${{ secrets.ASOPRO_USER }}
         ASOPRO_PSW: ${{ secrets.ASOPRO_PSW }}
       run: python main.py
+
+    - name: Set retry status
+      id: check
+      run: |
+        if [[ ${{ job.status }} == 'failure' ]]; then
+          echo "Retry"
+        else
+          echo "NoRetry"
+        fi
