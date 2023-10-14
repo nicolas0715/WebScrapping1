@@ -22,7 +22,7 @@ def enviar_email(subject, message):
 
     # Configuración del correo electrónico
     from_addr = 'oteronicolas3@gmail.com'
-    to_addr = 'oteronicolas3@gmail.com, farmaciatotino@gmail.com'
+    to_addr = 'oteronicolas3@gmail.com'#, farmaciatotino@gmail.com'
         
     # Crear objeto MIMEMultipart
     msg = MIMEMultipart()
