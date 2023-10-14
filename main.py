@@ -37,10 +37,6 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # Acceder a la página de inicio de sesión
 driver.get('https://www.asoprofarma.com.ar/Default.aspx')
 
-# Imprimir el HTML por pantalla
-page_source = driver.page_source
-print(page_source)
-
 # Ingresar credenciales
 username_input = driver.find_element(By.NAME, 'Login1$UserName')
 asopro_user = os.getenv('ASOPRO_USER')
@@ -55,6 +51,9 @@ try:
     span_element.click()
 except:
     pass
+
+page_source = driver.page_source
+print(page_source)
 
 # Hacer clic en el elemento <a>
 a_element = driver.find_element(By.ID, 'ctl00_Lnkeshop')
