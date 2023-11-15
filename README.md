@@ -6,4 +6,4 @@
 
 <h5>Para lograr el web scrapping tuve que usar la libreria Selenium por su capacidad de interaccion con el navegador, ya que se requieren usuario y contraseña para ingresar al sitio web del proveedor, y con BeautifulSoup no podia lograr, y logre automatizar la ejecucion con GitHub Actions.</h5>
 
-<h5>Me gustaria que los datos perduren en el tiempo, asi que agregare una especie de log en un futuro</h5>
+<h2>La ejecucion del codigo se detuvo porque asi lo pidio la empresa proveedora de medicamentos.</h2>
